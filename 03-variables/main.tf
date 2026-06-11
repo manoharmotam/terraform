@@ -6,7 +6,7 @@ resource "aws_instance" "test_ec2" {
 }
 
 resource "aws_security_group" "test_sg" {
-  name = "test-sg"
+  name = var.sg_name
   description = "Allow SSH"
   
   ingress {
