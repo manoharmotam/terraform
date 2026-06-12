@@ -33,7 +33,7 @@ variable "sg_name" {
 
 variable "instances_name" {
   type = list(string)
-  default = [ "mongodb", "redis", "mysql", "rabbitmq" ]
+  default = [ "mongodb", "redis" ]
 }
 
 variable "project" {
