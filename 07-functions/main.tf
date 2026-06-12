@@ -3,6 +3,7 @@ resource "aws_instance" "test_ec2" {
   ami             = var.ami_id
   instance_type   = var.instance_type
   vpc_security_group_ids  = [aws_security_group.test_sg[count.index].id]
+  key_name = "ami2"
 
   tags = {
     Name = "${var.project}-${var.environment}-${var.instances[count.index]}"
