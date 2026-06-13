@@ -7,8 +7,10 @@ resource "aws_route53_record" "roboshop" {
   records = [aws_instance.roboshop[each.key].private_ip]
 }
 
+
 resource "aws_route53_record" "frontend" {
   count = contains(keys(var.instances), "frontend") ? 1 : 0
+  
   zone_id = var.zone_id
   name = "${var.project}-${var.environment}.${var.domain_name}" 
   type = "A"
