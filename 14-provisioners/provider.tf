@@ -11,7 +11,7 @@ terraform {
     }
   }
   backend "s3" {
-    key = "backend-demo.tfstate"
+    key = "provisioner-demo.tfstate"
     bucket = "manoharmotam-terraform-state"
     region = "us-east-1"
     encrypt = true
