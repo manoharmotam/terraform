@@ -8,6 +8,10 @@ locals {
     )
   project = "roboshop"
   environment = "dev"
+  ssh = [{
+    port = 22
+    cidr_blocks = ["${chomp(data.http.get_ip.response_body)}/32"]
+  }]
 }
 
 variable "instance_type" {
@@ -24,4 +28,14 @@ variable "common_tags" {
     Project = "roboshop"
     Environment = "dev"
   }
+}
+
+variable "allowed_ports" {
+  type = list(any)
+  default = [
+    {
+      port = 80
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  ]
 }

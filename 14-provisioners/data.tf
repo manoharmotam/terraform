@@ -12,6 +12,14 @@ data "aws_ami" "ami2" {
     }
 }
 
+data "http" "get_ip" {
+  url = "https://checkip.amazonaws.com"
+}
+
 output "ec2_data" {
   value = data.aws_ami.ami2.id
+}
+
+output "http" {
+  value = local.ssh
 }
