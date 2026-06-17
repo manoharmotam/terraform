@@ -10,14 +10,7 @@ terraform {
       version = "3.5.0"
     }
   }
-  backend "s3" {
-    key          = "workspace-demo.tfstate"
-    bucket       = "manoharmotam-terraform-state"
-    region       = "us-east-1"
-    encrypt      = true
-    use_lockfile = true
-
-  }
+  backend "s3" {}
 }
 
 provider "aws" {

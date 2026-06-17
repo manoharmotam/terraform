@@ -1,3 +1,7 @@
+variable "ami" {
+  default = {}
+}
+
 variable "instance_type" {
   default = "t3.micro"
 
@@ -7,12 +11,11 @@ variable "instance_type" {
   }
 }
 
-variable "common_tags" {
-  default = {
-    Project     = "roboshop"
-    Environment = "dev"
-  }
-}
+# variable "common_tags" {
+#   default = {
+#         Environment = "dev"
+#   }
+# }
 
 variable "allowed_ports" {
   type = list(any)
@@ -22,4 +25,16 @@ variable "allowed_ports" {
       cidr_blocks = ["0.0.0.0/0"]
     }
   ]
+}
+
+variable "project" {
+  default = "roboshop"
+}
+
+variable "environment" {
+  default = {}
+}
+
+variable "user" {
+  default = {}
 }
