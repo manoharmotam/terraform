@@ -2,7 +2,7 @@
 
 resource "terraform_data" "test" {
   triggers_replace = [
-    aws_instance.test-ec2.id
+    aws_instance.test_ec2.id
   ]
 
   provisioner "file" {
@@ -13,7 +13,7 @@ resource "terraform_data" "test" {
     type        = "ssh"
     user        = "ec2-user"
     private_key = file("~/.ssh/ami2.pem")
-    host        = self.public_ip
+    host        = aws_instance.test_ec2.public_ip
   }
   provisioner "remote-exec" {
     inline = [
